@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: ansible-zsh
+      zsh_install_oh_my_zsh: true
+      zsh_oh_my_zsh_ignore_run_commands: true
+      zsh_install_prezto: true

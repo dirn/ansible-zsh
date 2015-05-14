@@ -1,0 +1,6 @@
+---
+zsh_install_oh_my_zsh: false
+zsh_install_prezto: false
+
+zsh_oh_my_zsh_ignore_run_commands: false
+zsh_prezto_ignore_run_commands: []

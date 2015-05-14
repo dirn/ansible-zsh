@@ -1,0 +1,12 @@
+---
+- name: Clone Oh My Zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+
+- name: Link the Oh My Zsh run commands file
+  file:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+    state: link
+  when: not zsh_oh_my_zsh_ignore_run_commands

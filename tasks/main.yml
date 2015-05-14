@@ -1,0 +1,8 @@
+---
+- include: zsh.yml
+
+- include: oh_my_zsh.yml
+  when: zsh_install_oh_my_zsh
+
+- include: prezto.yml
+  when: zsh_install_prezto

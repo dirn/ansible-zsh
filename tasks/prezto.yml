@@ -1,0 +1,19 @@
+---
+- name: Clone prezto
+  git:
+    repo: https://github.com/sorin-ionescu/prezto.git
+    dest: ~/.zprezto
+
+- name: Link the prezto run commands files
+  file:
+    src: ~/.zprezto/runcoms/{{ item }}
+    dest: ~/.{{ item }}
+    state: link
+  when: item not in zsh_prezto_ignore_run_commands
+  with_items:
+    - zlogin
+    - zlogout
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc

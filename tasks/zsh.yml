@@ -1,0 +1,3 @@
+---
+- include: osx/zsh.yml
+  when: ansible_os_family == 'Darwin'

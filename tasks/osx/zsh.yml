@@ -1,0 +1,20 @@
+---
+- name: Install
+  homebrew:
+    name: zsh
+    state: present
+
+- name: Add Homebrew's Zsh to available shells
+  sudo: yes
+  lineinfile:
+    dest: /etc/shells
+    line: /usr/local/bin/zsh
+
+- name: Check if Homebrew's Zsh is already the default shell (will require a restart)
+  shell: echo $SHELL
+  register: shell_name
+  changed_when: shell_name.stdout != '/usr/local/bin/zsh'
+
+- name: Make Homebrew's Zsh the default shell
+  shell: chsh -s /usr/local/bin/zsh
+  when: shell_name|changed
